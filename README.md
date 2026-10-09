@@ -17,7 +17,11 @@
 | 4.3 | Distinction | `webapp` | Notes web app (Flask) |
 | 4.4 | HD | `cli-app` | Command-line App (non-web) |
 
-# Note (docker pulling)
+# Note
+**Everything is documented in my Submission assignment**, all the instructions below are for those who want to test it out.
+i.e [VM-public-ip] = Your ip when testing
+
+# Docker Pulling
 My docker images for these task is Public, so you can pull it if you want to and not download the the files here. (unless pulling not working)
 
 Task 4.2

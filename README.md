@@ -15,7 +15,7 @@
 | 4.1 | Pass | – | Docker account, Docker install, hello-world |
 | 4.2 | Credit | `dockertaskCredit` | Python hello-world web server, pulled to another Docker device |
 | 4.3 | Distinction | `webapp` | Notes web app (Flask) |
-| 4.4 | HD | `cli-app` | Command-line cli-app App (non-web) |
+| 4.4 | HD | `cli-app` | Command-line App (non-web) |
 
 # Note (docker pulling)
 My docker images for these task is Public, so you can pull it if you want to and not download the the files here. (unless pulling not working)

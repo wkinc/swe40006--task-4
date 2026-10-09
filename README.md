@@ -55,7 +55,7 @@ docker run -d -p 5000:5000 --name py-hello [yourdockerid]/py-hello:1.0
 ```
 Open `http://localhost:5000`.
 
-**Pull and run on Device B (Azure VM):**
+**Pull and run on Device B (Ubuntu VM):**
 ```bash
 docker pull [yourdockerid]/py-hello:1.0
 docker run -d --restart unless-stopped -p 80:5000 [yourdockerid]/py-hello:1.0
@@ -73,7 +73,7 @@ docker run -d -p 5001:5001 --name notes-app [yourdockerid]/notes-app:1.0
 ```
 Open `http://localhost:5001`.
 
-**Pull and run on Device B (Azure VM):**
+**Pull and run on Device B (Ubuntu VM):**
 ```bash
 docker pull [yourdockerid]/notes-app:1.0
 docker run -d --restart unless-stopped -p 8080:5001 --name notes-app [yourdockerid]/notes-app:1.0
@@ -101,7 +101,7 @@ docker run --name multi-demo [yourdockerid]/multi-tool:3.0
 docker logs multi-demo
 ```
 
-**Pull and run on Device B (Azure VM):**
+**Pull and run on Device B (Ubuntu VM):**
 ```bash
 docker pull [yourdockerid]/multi-tool:3.0
 docker run -it --rm [yourdockerid]/multi-tool:3.0
@@ -112,7 +112,7 @@ docker run -it --rm [yourdockerid]/multi-tool:3.0
 - Flask (web apps)
 - Docker [version]
 - Docker Hub
-- Azure Ubuntu Virtual Machine
+- Ubuntu Ubuntu Virtual Machine
 
 ## Notes
 - The VM stays on during the marking period so the public links work.

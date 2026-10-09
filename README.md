@@ -15,18 +15,25 @@
 | 4.1 | Pass | – | Docker account, Docker install, hello-world |
 | 4.2 | Credit | `dockertaskCredit` | Python hello-world web server, pulled to another Docker device |
 | 4.3 | Distinction | `webapp` | Notes web app (Flask) |
-| 4.4 | HD | `cli-app` | Command-line Multi-Tool App (non-web) |
+| 4.4 | HD | `cli-app` | Command-line cli-app App (non-web) |
 
-## Public Links
+# Note (docker pulling)
+My docker images for these task is Public, so you can pull it if you want to and not download the the files here. (unless pulling not working)
 
-| Item | Link |
-|---|---|
-| Python hello-world (port 80) | http://[VM-public-IP] |
-| Notes web app (port 8080) | http://[VM-public-IP]:8080 |
-| Docker Hub: Python hello-world | [link] |
-| Docker Hub: Notes web app | [link] |
-| Docker Hub: Multi-Tool App | [link] |
+Task 4.2
+```
+docker pull wkin/dockertask:1.0
+```
 
+Task 4.3
+```
+docker pull wkin/webapp:1.0
+```
+
+Task 4.4
+```
+docker pull wkin/cli-app:1.0
+```
 ## Folder Structure
 
 ```
@@ -50,15 +57,15 @@ A small Flask server that shows a "Hello World" message. The Dockerfile uses a P
 **Run on Device A (laptop):**
 ```bash
 cd dockertaskCredit
-docker build -t [yourdockerid]/py-hello:1.0 .
-docker run -d -p 5000:5000 --name py-hello [yourdockerid]/py-hello:1.0
+docker build -t wkin/dockertask:1.0 .
+docker run -d -p 5000:5000 --name dockertask wkin/dockertask:1.0
 ```
 Open `http://localhost:5000`.
 
 **Pull and run on Device B (Ubuntu VM):**
 ```bash
-docker pull [yourdockerid]/py-hello:1.0
-docker run -d --restart unless-stopped -p 80:5000 [yourdockerid]/py-hello:1.0
+docker pull wkin/dockertask:1.0
+docker run -d --restart unless-stopped -p 80:5000 wkin/dockertask:1.0
 ```
 Open `http://[VM-public-IP]`.
 
@@ -68,19 +75,19 @@ A Flask web app. The user can add and delete notes on a web page. Notes are kept
 **Run on Device A:**
 ```bash
 cd webapp
-docker build -t [yourdockerid]/notes-app:1.0 .
-docker run -d -p 5001:5001 --name notes-app [yourdockerid]/notes-app:1.0
+docker build -t wkin/webapp:1.0 .
+docker run -d -p 5001:5001 --name webapp wkin/webapp:1.0
 ```
 Open `http://localhost:5001`.
 
 **Pull and run on Device B (Ubuntu VM):**
 ```bash
-docker pull [yourdockerid]/notes-app:1.0
-docker run -d --restart unless-stopped -p 8080:5001 --name notes-app [yourdockerid]/notes-app:1.0
+docker pull wkin/webapp:1.0
+docker run -d --restart unless-stopped -p 8080:5001 --name webapp wkin/webapp:1.0
 ```
 Open `http://[VM-public-IP]:8080`.
 
-## 4.4 – Multi-Tool App (`cli-app`)
+## 4.4 – cli-app App (`cli-app`)
 A command-line app. It is **not** a web app and has no port. The user chooses a tool from a menu:
 1. Temperature Converter (Celsius and Fahrenheit)
 2. Number Guessing Game (number from 1 to 100)
@@ -91,29 +98,27 @@ If there is no keyboard input, the app runs in **demo mode** and prints to the l
 **Run on Device A:**
 ```bash
 cd cli-app
-docker build -t [yourdockerid]/multi-tool:3.0 .
-docker run -it --rm [yourdockerid]/multi-tool:3.0
+docker build -t wkin/cli-app:1.0 .
+docker run -it --rm wkin/cli-app:1.0
 ```
 
 **Demo mode and logs:**
 ```bash
-docker run --name multi-demo [yourdockerid]/multi-tool:3.0
-docker logs multi-demo
+docker run --name cli-demo wkin/cli-app:1.0
+docker logs cli-demo
 ```
 
 **Pull and run on Device B (Ubuntu VM):**
 ```bash
-docker pull [yourdockerid]/multi-tool:3.0
-docker run -it --rm [yourdockerid]/multi-tool:3.0
+docker pull wkin/cli-app:1.0
+docker run -it --rm wkin/cli-app:1.0
 ```
 
 ## Technology Used
 - Python 3.12 (slim Docker image)
 - Flask (web apps)
-- Docker [version]
+- Docker
 - Docker Hub
-- Ubuntu Ubuntu Virtual Machine
+- Ubuntu Virtual Machine
 
-## Notes
-- The VM stays on during the marking period so the public links work.
-- Source code is in this repository. It is not included in the report.
+
